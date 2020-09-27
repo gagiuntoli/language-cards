@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactCardFlip from 'react-card-flip';
-
+import './Card.css';
 
 class Card extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Card extends Component {
     console.log(this.props.card)
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
-        <div>
+        <div className="mycard">
           <div onClick={this.handleClick} className="row">
             <div className="col s12 m6">
               <div className="card blue-grey darken-1">
@@ -33,7 +33,7 @@ class Card extends Component {
           </div>
         </div>
 
-        <div>
+        <div className="mycard">
           <div onClick={this.handleClick} className="row">
             <div className="col s12 m6">
               <div className="card blue-grey darken-1">
