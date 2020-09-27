@@ -6,9 +6,19 @@ class ManagementBoard extends Component {
   constructor(){
     super();
     this.state = {
-
+      newWord: "ddd",
+      type: "Substantiv",
+      translation: "",
+      example: "",
+      exampleTranslation: "",
     }
   }
+
+  handleChangeNewWord = (event)=>{this.setState({newWord: event.target.value})}
+  handleChangeTranslation = (event)=>{this.setState({translation: event.target.value})}
+  handleChangeExample = (event)=>{this.setState({example: event.target.value})}
+  handleChangeExampleTranslation = (event)=>{this.setState({exampleTranslation: event.target.value})}
+
   render(){
     return(
       <div className="management-board">
@@ -16,8 +26,7 @@ class ManagementBoard extends Component {
            <form className="col s12 m12">
              <div className="row">
                <div className="input-field col s6">
-                 <input placeholder="Placeholder" id="first_name" type="text" className="validate"/>
-                 <label for="first_name">New word</label>
+                 <input placeholder="Insert a new word" type="text" value={this.state.newWord} onChange={this.handleChangeNewWord}/>
                </div>
                <form action="#">
                  <p>
@@ -39,27 +48,21 @@ class ManagementBoard extends Component {
                    </label>
                  </p>
                </form>
-
              </div>
-
-
 
              <div className="row">
                <div className="input-field col s12">
-                 <input disabled value="I am not editable" id="disabled" type="text" className="validate"/>
-                 <label for="disabled">Example</label>
+                 <input placeholder="Give an example with that word" type="text" value={this.state.example} onChange={this.handleChangeExample}/>
                </div>
              </div>
              <div className="row">
                <div className="input-field col s12">
-                 <input id="password" type="password" className="validate"/>
-                 <label for="password">Translation</label>
+                  <input placeholder="Translation" type="text" value={this.state.translation} onChange={this.handleChangeTranslation}/>
                </div>
              </div>
              <div className="row">
                <div className="input-field col s12">
-                 <input id="email" type="email" className="validate"/>
-                 <label for="email">Example translated</label>
+                  <input placeholder="Translate the example" type="text" value={this.state.exampleTranslation} onChange={this.handleChangeExampleTranslation}/>
                </div>
              </div>
          </form>
